@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GR & Sons Trout Fish Farm | Neelum Valley</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #0f4c5c;
+      --secondary-color: #2a9d8f;
+      --accent-color: #e76f51;
+      --dark-color: #1d3557;
+      --light-bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --text-dark: #2b2d42;
+      --text-muted: #6c757d;
+      --whatsapp-color: #25D366;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-dark);
+      background-color: var(--light-bg);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* --- Navigation Bar --- */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: rgba(15, 76, 92, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo i {
+      color: var(--secondary-color);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--secondary-color);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      color: #ffffff;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      position: relative;
+      background: linear-gradient(rgba(15, 76, 92, 0.75), rgba(29, 53, 87, 0.85)), 
+                  url('FB_IMG_1789104483260.jpg') center/cover no-repeat;
+      color: #ffffff;
+      text-align: center;
+      padding: 5rem 1.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 75vh;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.8rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      font-weight: 400;
+      color: #e0f2f1;
+    }
+
+    /* --- Call To Action Buttons --- */
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0.85rem 1.4rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      width: 100%;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-call {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-whatsapp {
+      background-color: var(--whatsapp-color);
+      color: #ffffff;
+    }
+
+    .btn-location {
+      background-color: var(--secondary-color);
+      color: #ffffff;
+    }
+
+    /* --- Global Section Styling --- */
+    section {
+      padding: 3.5rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: var(--secondary-color);
+      border-radius: 2px;
+    }
+
+    /* --- About & Our Farm --- */
+    .info-card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      border-left: 4px solid var(--secondary-color);
+    }
+
+    .info-card p {
+      font-size: 1.05rem;
+      color: var(--text-dark);
+    }
+
+    /* --- Key Features Grid --- */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-item {
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #eef2f5;
+    }
+
+    .feature-item i {
+      font-size: 2.2rem;
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+    }
+
+    .feature-item h3 {
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+
+    .feature-item p {
+      font-weight: 600;
+      color: var(--text-dark);
+      font-size: 1.1rem;
+    }
+
+    /* --- Gallery --- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background-color: #000;
+      aspect-ratio: 4 / 3;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      color: #ffffff;
+      padding: 12px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* --- Location & Contact --- */
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .contact-info {
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-detail i {
+      font-size: 1.3rem;
+      color: var(--secondary-color);
+      margin-top: 3px;
+    }
+
+    .contact-detail h4 {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .contact-detail p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .map-box {
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border: 2px dashed #d1d5db;
+    }
+
+    .map-box i {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    /* --- Footer --- */
+    footer {
+      background-color: var(--dark-color);
+      color: #ffffff;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    footer p {
+      opacity: 0.8;
+    }
+
+    /* --- Media Queries for Mobile Responsiveness --- */
+    @media (min-width: 600px) {
+      .cta-group {
+        flex-direction: row;
+      }
+      .btn {
+        width: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      section {
+        padding: 2.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <a href="#home" class="logo">
+        <i class="fa-solid fa-fish"></i> GR & Sons
+      </a>
+      <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle Navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" onclick="closeMenu()">Home</a></li>
+        <li><a href="#about" onclick="closeMenu()">About Us</a></li>
+        <li><a href="#farm" onclick="closeMenu()">Our Farm</a></li>
+        <li><a href="#trout" onclick="closeMenu()">Our Trout</a></li>
+        <li><a href="#gallery" onclick="closeMenu()">Gallery</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Location & Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>GR & Sons Trout Fish Farm</h1>
+      <p>Fresh Trout from the Beautiful Neelum Valley</p>
+      
+      <div class="cta-group">
+        <a href="tel:05821458043" class="btn btn-call">
+          <i class="fa-solid fa-phone"></i> Call Now
+        </a>
+        <a href="https://wa.me/923172750050" class="btn btn-whatsapp" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://maps.google.com/?q=WQGJ%2B9C7,+Jura,+Ashkot,+District+Neelum,+Azad+Jammu+%26+Kashmir,+Pakistan" class="btn btn-location" target="_blank">
+          <i class="fa-solid fa-location-dot"></i> View Location
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about">
+    <div class="section-title">
+      <h2>About Us</h2>
+    </div>
+    <div class="info-card">
+      <p>
+        <strong>GR & Sons Trout Fish Farm</strong> is located in the scenic village of Jura, near Ashkot in the heart of District Neelum, Azad Jammu & Kashmir. Situated alongside natural river water flows surrounded by lush green mountains, our farm utilizes pure alpine water ideal for raising premium quality trout.
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Farm Section -->
+  <section id="farm">
+    <div class="section-title">
+      <h2>Our Farm</h2>
+    </div>
+    <div class="info-card">
+      <p>
+        Our facility features structured concrete raceway tanks designed to supply continuous fresh, highly oxygenated natural water directly from the mountains. This clean, flowing water environment ensures healthy growth conditions for our stock year-round.
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Trout Section -->
+  <section id="trout">
+    <div class="section-title">
+      <h2>Our Trout</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item">
+        <i class="fa-solid fa-tag"></i>
+        <h3>Trout Price</h3>
+        <p>PKR 3,000 – 3,500 per kg</p>
+      </div>
+
+      <div class="feature-item">
+        <i class="fa-solid fa-store"></i>
+        <h3>Sales Type</h3>
+        <p>Direct Sale</p>
+      </div>
+
+      <div class="feature-item">
+        <i class="fa-solid fa-clock"></i>
+        <h3>Opening Hours</h3>
+        <p>24 Hours Open</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <div class="section-title">
+      <h2>Gallery</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="FB_IMG_1789104483260.jpg" alt="Water Raceways and Surrounding Mountains at GR & Sons Trout Fish Farm">
+        <div class="gallery-caption">Farm Water Raceways & Neelum Mountains</div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1789104488134.jpg" alt="Raceway Concrete Tanks with Fresh Water">
+        <div class="gallery-caption">Fresh Water Raceway Tanks</div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1789104509477.jpg" alt="Concrete Raceways at GR & Sons Farm">
+        <div class="gallery-caption">Raceway Ponds Setup</div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1789104476841.jpg" alt="Fenced Raceways Side View">
+        <div class="gallery-caption">Raceway Side View</div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1789104460443.jpg" alt="Fresh Trout Swimming in Raceway Water">
+        <div class="gallery-caption">Fresh Trout Stock</div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1789104520947.jpg" alt="Close-up of Rainbow Trout Head and Markings">
+        <div class="gallery-caption">Trout Close-up</div>
+      </div>
+      <div class="gallery-item">
+        <img src="FB_IMG_1789104457598.jpg" alt="Trout Underwater View in Pure Water">
+        <div class="gallery-caption">Underwater View of Trout</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location & Contact Section -->
+  <section id="contact">
+    <div class="section-title">
+      <h2>Location & Contact</h2>
+    </div>
+    <div class="contact-container">
+      <div class="contact-info">
+        <div class="contact-detail">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <h4>Location</h4>
+            <p>WQGJ+9C7, Jura, Ashkot, District Neelum, Azad Jammu & Kashmir, Pakistan</p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <h4>Phone Number</h4>
+            <p><a href="tel:05821458043">05821458043</a></p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <i class="fa-brands fa-whatsapp"></i>
+          <div>
+            <h4>WhatsApp</h4>
+            <p><a href="https://wa.me/923172750050" target="_blank">03172750050</a></p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <i class="fa-solid fa-clock"></i>
+          <div>
+            <h4>Operating Hours</h4>
+            <p>24 Hours</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-box">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <h3>Visit Our Farm</h3>
+        <p style="margin: 10px 0 20px 0; color: var(--text-muted);">Located at Jura, Ashkot, District Neelum</p>
+        <a href="https://maps.google.com/?q=WQGJ%2B9C7,+Jura,+Ashkot,+District+Neelum,+Azad+Jammu+%26+Kashmir,+Pakistan" class="btn btn-location" target="_blank">
+          Open in Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; GR & Sons Trout Fish Farm. All rights reserved.</p>
+    <p style="margin-top: 5px; font-size: 0.8rem;">Jura, Ashkot, District Neelum, Azad Jammu & Kashmir</p>
+  </footer>
+
+  <!-- JavaScript for Navigation -->
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+
+    function closeMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.remove('active');
+    }
+  </script>
+</body>
+</html>
